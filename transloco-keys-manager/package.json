@@ -1,0 +1,36 @@
+{
+  "name": "transloco-keys-manager",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "bin": {
+    "keys-manager": "index.js"
+  },
+  "author": "",
+  "license": "MIT",
+  "dependencies": {
+    "chalk": "^2.4.2",
+    "cli-table": "^0.3.1",
+    "deep-diff": "^1.0.2",
+    "find": "^0.3.0",
+    "glob": "^7.1.4",
+    "inquirer": "^7.0.0",
+    "inquirer-directory": "^2.2.0",
+    "inquirer-file-tree-selection-prompt": "^1.0.2",
+    "ora": "^3.4.0",
+    "os-locale": "^4.0.0",
+    "pkg-dir": "^4.2.0"
+  },
+  "transloco-keys-manager": {
+    "extract": {
+      "src": "src",
+      "output": "assets/i18n",
+      "langs": "en",
+      "configPath": "src/app.module.ts"
+    },
+    "find": {
+      "i18n": "assets/i18n",
+      "configPath": "src/app.module.ts"
+    }
+  }
+}

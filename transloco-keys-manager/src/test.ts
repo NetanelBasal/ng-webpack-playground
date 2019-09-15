@@ -1,10 +1,11 @@
 import { Component } from '@angular/core';
-import { TranslocoService } from '@ngneat/transloco';
+import { TranslocoService, translate } from '@ngneat/transloco';
+import { take } from 'rxjs/operators';
 
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
-  styleUrls: ['./app.component.scss']
+  styleUrls: ['./app.component.css']
 })
 export class AppComponent {
   constructor(private service: TranslocoService) {}
@@ -16,6 +17,14 @@ export class AppComponent {
     this.service.translate('general_b.a');
     this.service.translate('36', {}, 'es');
     this.service.translate('37', {});
-    this.service.translate('37333', {});
+  }
+
+  change(lang: string) {
+    this.service.selectTranslate('38').subscribe();
+    this.service.selectTranslate('39').subscribe();
+    this.service.selectTranslate('40.41.42').subscribe();
+
+    this.a = translate('43');
+    this.b = translate('44', {});
   }
 }

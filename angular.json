@@ -60,7 +60,7 @@
           "builder": "@angular-builders/custom-webpack:dev-server",
           "options": {
             "customWebpackConfig": {
-              "mergeStrategies": { "module.rules": "append" },
+              "mergeStrategies": { "module.rules": "prepend" },
               "path": "./webpack.config.js"
             },
             "browserTarget": "ng8:build"

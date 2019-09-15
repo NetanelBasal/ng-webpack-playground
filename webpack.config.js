@@ -1,24 +1,18 @@
-const WebpackNotifierPlugin = require('webpack-notifier');
-const path = require('path');
+const TranslocoPlugin = require('./transloco-keys-manager/webpack-plugin');
 
 module.exports = {
-  module: {
-    rules: [
-      {
-        test: /\.scss$/,
-        loader: 'postcss-loader',
-        options: {
-          ident: 'postcss',
-          plugins: () => [require('postcss-short')(), require('rucksack-css')()]
-        }
-      }
-    ]
-  },
   plugins: [
-    new WebpackNotifierPlugin({
-      alwaysNotify: true,
-      title: 'App Name',
-      contentImage: path.join(__dirname, '1.png')
+    new TranslocoPlugin({
+      extract: {
+        src: 'src',
+        output: 'assets/i18n',
+        langs: 'en',
+        configPath: 'src/app/app.module.ts'
+      },
+      find: {
+        i18n: 'src/assets/i18n',
+        configPath: 'src/app/app.module.ts'
+      }
     })
   ]
 };
