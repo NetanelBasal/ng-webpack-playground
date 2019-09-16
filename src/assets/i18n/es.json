@@ -1,20 +1,19 @@
 {
-  "13": "",
   "32": "",
   "36": "",
   "37": "",
-  "title": "transloco es",
-  "dynamic": "transloco {{value}}",
-  "a": {
-    "b": {
-      "c": ""
-    }
-  },
-  "global": "",
+  "37333": "",
   "general": {
     "a": {
       "b": ""
     }
   },
-  "hello": ""
+  "title": "",
+  "hello": "",
+  "global": "",
+  "a": {
+    "b": {
+      "c": ""
+    }
+  }
 }

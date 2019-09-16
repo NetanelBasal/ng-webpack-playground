@@ -5,13 +5,12 @@ module.exports = {
     new TranslocoPlugin({
       extract: {
         src: 'src',
-        output: 'assets/i18n',
-        langs: 'en',
-        configPath: 'src/app/app.module.ts'
+        output: 'src/assets/i18n',
+        configPath: 'src/app/app.module.ts',
+        defaultValue: '🌐'
       },
       find: {
         i18n: 'src/assets/i18n',
-        configPath: 'src/app/app.module.ts'
       }
     })
   ]

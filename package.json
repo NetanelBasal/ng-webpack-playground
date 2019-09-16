@@ -2,7 +2,7 @@
   "name": "transloco-demo",
   "version": "0.0.0",
   "scripts": {
-    "validate-keys": "node transloco-keys-manager/index.js --find-missing",
+    "validate-keys": "node --inspect ./transloco-keys-manager/index.js --find-missing",
     "ng": "ng",
     "start": "ng serve",
     "build": "ng build",
@@ -62,5 +62,19 @@
     "tslint": "~5.15.0",
     "typescript": "~3.4.3",
     "webpack-notifier": "^1.7.0"
+  },
+  "transloco-keys-manager": {
+    "extract": {
+      "src": "src",
+      "output": "src/assets/i18n",
+      "langs": "en",
+      "defaultValue": "🌐",
+      "configPath": "src/app/app.module.ts"
+    },
+    "find": {
+      "defaultValue": "🌐",
+      "i18n": "src/assets/i18n",
+      "configPath": "src/app/app.module.ts"
+    }
   }
 }
