@@ -1,27 +1,44 @@
-# Ng8
+- Run yarn install both on the root directory and the transloco-keys-manager directory.
+- Run npm start
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 8.0.1.
+The project contains two pages. The main page, and a lazy load page which also scoped to `todos-page`.
 
-## Development server
+You can start adding keys to` app.component.html`, and `todos-page.component.html`. Here are a couple of examples:
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
+```html
+// app.component.html
 
-## Code scaffolding
+<ng-template transloco let-t>
+  {{ t.newKey }}
+  {{ t.some.nested.key }}
+</ng-template>
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+<p>{{ 'newPipeKey' | transloco }}</p>
+```
 
-## Build
+```html
+// todos-page.component.html
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory. Use the `--prod` flag for a production build.
+<ng-template transloco let-t>
+  {{ t.todosPage.newKey }}
+  {{ t.todosPage.should.be.in.scope.file }}
+</ng-template>
 
-## Running unit tests
+<ng-container *transloco="let t">
+  {{ condition ? t.todosPage.wow : t.global }}
+</ng-container>
+```
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+Or in `app.componen.ts`:
+```ts
+export class AppComponent {
+  constructor(private translocoService: TranslocoService) {
+    translocoService.translate('keyFromComponent');
+  }
+}
+```
 
-## Running end-to-end tests
+When you hit save, you should see the keys in the translation files. (`en.json`, `es.json`)
 
-Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protractortest.org/).
-
-## Further help
-
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI README](https://github.com/angular/angular-cli/blob/master/README.md).
+## Find Missing Keys
+Close the dev-server, and remove some keys from the translation file/s. In the root project run `npm run validate-keys`. Missing keys should be added, and logged.
